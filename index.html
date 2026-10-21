@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proposta comercial da Format Agência para criação do site do Caçulinha — Casa de Carnes e Hortifruti.">
+  <title>Proposta de criação de site | Caçulinha</title>
+  <style>
+    :root {
+      --ink: #17231d;
+      --muted: #5d6962;
+      --green: #17643c;
+      --green-dark: #0f4b2c;
+      --green-soft: #e7f1eb;
+      --cream: #f7f5ee;
+      --line: #d9dfda;
+      --paper: #fff;
+      --shadow: 0 18px 50px rgba(18, 48, 31, .09);
+      --radius: 24px;
+      --page: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Segoe UI", Inter, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    .wrap { width: min(var(--page), calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.12; letter-spacing: -.035em; }
+    h1 { max-width: 900px; margin-bottom: 24px; font-size: clamp(2.7rem, 7vw, 5.8rem); font-weight: 750; }
+    h2 { max-width: 760px; margin-bottom: 24px; font-size: clamp(2rem, 4.2vw, 3.75rem); font-weight: 730; }
+    h3 { margin-bottom: 10px; font-size: 1.18rem; }
+    .lead { max-width: 760px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.32rem); }
+    .small { color: var(--muted); font-size: .94rem; }
+    .strong { color: var(--ink); font-weight: 700; }
+    section { padding: 100px 0; }
+
+    .topbar {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(var(--page), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.24);
+      color: #fff;
+    }
+    .brand { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; }
+    .print-btn {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 17px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+    }
+    .print-btn:hover { background: rgba(255,255,255,.16); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 760px;
+      display: grid;
+      place-items: end start;
+      padding: 165px 0 92px;
+      color: #fff;
+      background: var(--green-dark);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      right: -180px;
+      top: 70px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      box-shadow: 0 0 0 72px rgba(255,255,255,.025), 0 0 0 144px rgba(255,255,255,.018);
+    }
+    .hero .wrap { position: relative; z-index: 1; }
+    .hero .eyebrow, .hero .lead { color: #d9eadf; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-top: 48px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      color: #d9eadf;
+      font-size: .92rem;
+    }
+
+    .intro-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 80px; align-items: start; }
+    .objective-list { border-top: 1px solid var(--line); }
+    .objective {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .objective span { color: var(--green); font-weight: 800; }
+    .objective p { margin: 0; }
+
+    .structure { background: #fff; }
+    .section-head { display: flex; justify-content: space-between; gap: 40px; align-items: end; margin-bottom: 54px; }
+    .section-head > * { margin-bottom: 0; }
+    .section-note { max-width: 380px; color: var(--muted); }
+    .structure-list { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+    .structure-item {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 16px;
+      min-height: 190px;
+      padding: 30px 30px 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .structure-item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .structure-item:nth-child(even) { padding-left: 30px; }
+    .letter {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: var(--green);
+      background: var(--green-soft);
+      font-weight: 800;
+    }
+    .structure-item p { margin: 0; color: var(--muted); }
+
+    .included-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .checks { columns: 2; column-gap: 34px; padding: 0; margin: 0; list-style: none; }
+    .checks li { position: relative; break-inside: avoid; margin: 0 0 18px; padding-left: 26px; }
+    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+    .scope-note { margin-top: 28px; padding: 20px 22px; border-left: 3px solid var(--green); background: var(--green-soft); }
+    .scope-note p { margin: 0; }
+
+    .investment { padding: 82px 0; color: #fff; background: var(--green); }
+    .investment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+    .investment .eyebrow, .investment .small { color: #d8ebe0; }
+    .price { margin: 8px 0 12px; font-size: clamp(3.2rem, 8vw, 6.6rem); font-weight: 800; line-height: .96; letter-spacing: -.06em; }
+    .payment { padding: 28px 0 4px; border-top: 1px solid rgba(255,255,255,.26); }
+    .payment p { margin-bottom: 8px; }
+
+    .costs { background: #fff; }
+    .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 42px 0; }
+    .cost-card { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); }
+    .cost-card .amount { margin: 12px 0; color: var(--green); font-size: 2.25rem; font-weight: 800; letter-spacing: -.04em; }
+    .cost-card p:last-child { margin-bottom: 0; color: var(--muted); }
+    .finance-summary { display: grid; grid-template-columns: 1.25fr .75fr; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); }
+    .finance-lines { padding: 28px 30px; }
+    .finance-line { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .finance-line:last-child { border: 0; }
+    .first-year { display: flex; flex-direction: column; justify-content: center; padding: 34px; color: #fff; background: var(--green-dark); }
+    .first-year strong { display: block; margin: 7px 0; font-size: 2.5rem; line-height: 1; letter-spacing: -.045em; }
+    .first-year p { margin-bottom: 0; color: #d9eadf; }
+    .cost-foot { margin-top: 24px; color: var(--muted); }
+
+    .optional { background: var(--cream); }
+    .optional-panel { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; padding: 48px; border: 1px solid #cbd7cf; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+    .optional-price { color: var(--green); font-size: 2.7rem; font-weight: 800; line-height: 1; letter-spacing: -.05em; }
+    .optional-price small { display: block; margin-top: 10px; color: var(--muted); font-size: .92rem; font-weight: 500; letter-spacing: 0; line-height: 1.4; }
+    .plain-list { margin: 22px 0 0; padding-left: 20px; }
+    .plain-list li { margin-bottom: 10px; }
+
+    .timeline { background: #fff; }
+    .deadline { display: inline-block; margin: 8px 0 44px; padding: 18px 24px; border-radius: 999px; color: var(--green-dark); background: var(--green-soft); font-size: 1.24rem; font-weight: 800; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--green); }
+    .step { position: relative; padding: 28px 26px 0 0; }
+    .step::before { content: ""; position: absolute; width: 12px; height: 12px; top: -7px; left: 0; border: 3px solid #fff; border-radius: 50%; background: var(--green); }
+    .step .num { color: var(--green); font-size: .82rem; font-weight: 800; }
+    .step p { margin-bottom: 0; }
+
+    .materials-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .materials { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; margin: 0; padding: 0; list-style: none; counter-reset: material; }
+    .materials li { counter-increment: material; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .materials li::before { content: "0" counter(material); display: block; margin-bottom: 5px; color: var(--green); font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
+
+    footer { padding: 96px 0 42px; color: #fff; background: var(--green-dark); }
+    footer blockquote { max-width: 840px; margin: 0 0 90px; font-size: clamp(2rem, 4vw, 3.8rem); font-weight: 700; line-height: 1.12; letter-spacing: -.04em; }
+    .footer-line { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.2); color: #d9eadf; }
+    .footer-line strong { color: #fff; }
+
+    @media (max-width: 800px) {
+      section { padding: 72px 0; }
+      .hero { min-height: 680px; padding-bottom: 68px; }
+      .intro-grid, .included-grid, .investment-grid, .optional-panel, .materials-grid { grid-template-columns: 1fr; gap: 40px; }
+      .section-head { display: block; }
+      .section-note { margin-top: 12px; }
+      .structure-list, .cost-grid, .finance-summary, .materials { grid-template-columns: 1fr; }
+      .structure-item, .structure-item:nth-child(even) { padding: 26px 0; border-right: 0; }
+      .steps { grid-template-columns: 1fr; border-top: 0; border-left: 2px solid var(--green); }
+      .step { padding: 0 0 30px 30px; }
+      .step::before { top: 4px; left: -7px; }
+      .optional-panel { padding: 30px; }
+      .checks { columns: 1; }
+    }
+    @media (max-width: 520px) {
+      .wrap, .topbar { width: min(100% - 28px, var(--page)); }
+      .topbar { padding-top: 20px; }
+      .print-btn span { display: none; }
+      .hero { min-height: 650px; }
+      .hero-meta { display: block; }
+      .hero-meta span { display: block; margin-bottom: 5px; }
+      .finance-line { display: block; }
+      .finance-line strong { display: block; margin-top: 4px; }
+      .footer-line { display: block; }
+    }
+
+    @page { size: A4; margin: 15mm; }
+    @media print {
+      :root { --cream: #fff; }
+      html { font-size: 10pt; }
+      body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .print-btn { display: none; }
+      .topbar { position: absolute; }
+      .hero { min-height: 257mm; padding: 42mm 0 24mm; page-break-after: always; }
+      section { padding: 15mm 0; }
+      h1 { font-size: 42pt; }
+      h2 { font-size: 27pt; }
+      .intro-grid, .included-grid, .investment-grid, .optional-panel, .materials-grid { gap: 10mm; }
+      .structure { page-break-before: always; }
+      .structure-item { min-height: 0; padding-top: 6mm; padding-bottom: 6mm; }
+      .investment, .costs, .optional, .timeline, .materials-section, footer { page-break-before: always; }
+      .investment { min-height: 170mm; display: flex; align-items: center; }
+      .price { font-size: 56pt; }
+      .cost-card, .finance-summary, .optional-panel { box-shadow: none; break-inside: avoid; }
+      .steps, .cost-grid, .finance-summary { break-inside: avoid; }
+      footer { min-height: 257mm; display: flex; align-items: center; padding: 25mm 0; }
+      footer .wrap { width: 100%; }
+      footer blockquote { margin-bottom: 80mm; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Cabeçalho da proposta">
+    <div class="brand">Format Agência</div>
+    <button class="print-btn" type="button" onclick="window.print()" aria-label="Imprimir ou salvar proposta em PDF">
+      <span aria-hidden="true">↓</span><span>Imprimir / salvar em PDF</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow">Format Agência apresenta · Proposta de criação de site</p>
+        <h1 id="hero-title">Mais facilidade para conhecer o Caçulinha. Mais caminhos para fazer um pedido.</h1>
+        <p class="lead">Um site pensado para valorizar os produtos, apresentar as unidades e facilitar o contato dos clientes pelo WhatsApp.</p>
+        <div class="hero-meta">
+          <span>Caçulinha | Casa de Carnes e Hortifruti</span>
+          <span>Proposta comercial</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="objetivo-title">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow">01 · O que queremos construir</p>
+          <h2 id="objetivo-title">Um endereço digital próprio, simples de encontrar e fácil de usar.</h2>
+          <p class="lead">O site reunirá as principais informações do Caçulinha e apoiará a comunicação já realizada nas redes sociais. Será uma vitrine institucional e comercial, organizada para conduzir o visitante até a unidade ou o WhatsApp.</p>
+          <p class="small">O mix será apresentado por categorias. Disponibilidade, preços e pedidos continuarão sendo consultados diretamente com a equipe — sem catálogo individual, carrinho, pagamento online ou controle de estoque.</p>
+        </div>
+        <div class="objective-list" aria-label="Objetivos do projeto">
+          <div class="objective"><span>01</span><p>Apresentar a variedade de categorias disponíveis.</p></div>
+          <div class="objective"><span>02</span><p>Reforçar a confiança na qualidade dos alimentos e no atendimento.</p></div>
+          <div class="objective"><span>03</span><p>Facilitar a localização de todas as unidades.</p></div>
+          <div class="objective"><span>04</span><p>Dar visibilidade a campanhas e destaques comerciais.</p></div>
+          <div class="objective"><span>05</span><p>Encurtar o caminho entre conhecer a loja e iniciar um pedido pelo WhatsApp.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="structure" aria-labelledby="estrutura-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">02 · Estrutura sugerida</p><h2 id="estrutura-title">Uma jornada completa, da primeira impressão ao contato.</h2></div>
+          <p class="section-note">Esta é uma estrutura inicial. A organização e o conteúdo serão refinados durante o projeto, com base nos materiais e nas informações confirmadas pelo Caçulinha.</p>
+        </div>
+        <div class="structure-list">
+          <article class="structure-item"><span class="letter">A</span><div><h3>Banners de destaque em carrossel</h3><p>Campanhas, novidades, kits e ações sazonais na abertura, com chamadas para o WhatsApp. As peças poderão ser substituídas por meio do serviço opcional de atualizações.</p></div></article>
+          <article class="structure-item"><span class="letter">B</span><div><h3>Apresentação do Caçulinha</h3><p>Uma seção breve para apresentar a empresa, o cuidado com os produtos e a proposta de atendimento.</p></div></article>
+          <article class="structure-item"><span class="letter">C</span><div><h3>Categorias de produtos</h3><p>Apresentação visual das principais categorias — como carnes, frutas, verduras e legumes — sem cadastrar cada item. Outras categorias e destaques serão definidos com a empresa.</p></div></article>
+          <article class="structure-item"><span class="letter">D</span><div><h3>Qualidade e praticidade</h3><p>Conteúdo para valorizar seleção, frescor, cuidado, variedade e facilidade nas compras do dia a dia, sempre com informações confirmadas pelo Caçulinha.</p></div></article>
+          <article class="structure-item"><span class="letter">E</span><div><h3>Fotos das lojas</h3><p>Galeria com imagens reais dos ambientes, setores e da experiência de compra.</p></div></article>
+          <article class="structure-item"><span class="letter">F</span><div><h3>Todas as unidades</h3><p>Fotos, endereço, horário, acesso às rotas no Google Maps e WhatsApp correspondente a cada unidade, conforme a operação definida pela empresa.</p></div></article>
+          <article class="structure-item"><span class="letter">G</span><div><h3>Avaliações do Google</h3><p>Seleção de depoimentos reais, com acesso ao perfil correspondente no Google, para ajudar quem ainda não conhece a loja.</p></div></article>
+          <article class="structure-item"><span class="letter">H</span><div><h3>Contato e pedidos pelo WhatsApp</h3><p>Botões em pontos estratégicos e atalho flutuante. Quando necessário, o visitante poderá escolher a unidade antes de abrir a conversa.</p></div></article>
+          <article class="structure-item"><span class="letter">I</span><div><h3>Rodapé</h3><p>Informações essenciais de contato, unidades, horários e redes sociais.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="incluido-title">
+      <div class="wrap included-grid">
+        <div><p class="eyebrow">03 · O que está incluído</p><h2 id="incluido-title">Da organização das informações à publicação.</h2><p class="lead">Uma entrega completa para colocar o novo endereço do Caçulinha no ar com clareza, consistência e boa experiência em todas as telas.</p></div>
+        <div>
+          <ul class="checks">
+            <li>Planejamento da estrutura e das informações.</li>
+            <li>Design alinhado à identidade visual do Caçulinha.</li>
+            <li>Desenvolvimento responsivo para celular, tablet e computador.</li>
+            <li>Organização dos textos com base nas informações fornecidas.</li>
+            <li>Implementação do carrossel de banners.</li>
+            <li>Apresentação de categorias, fotos, unidades e avaliações reais.</li>
+            <li>Links para WhatsApp e localização no Google Maps.</li>
+            <li>Configurações básicas de títulos, descrições e organização para mecanismos de busca.</li>
+            <li>Configuração e publicação no domínio e na hospedagem contratados.</li>
+          </ul>
+          <div class="scope-note"><p><strong>Ajustes durante o desenvolvimento</strong> fazem parte do processo até a aprovação final. Depois que o site estiver aprovado e publicado, novas atualizações poderão ser contratadas sob demanda.</p></div>
+          <p class="small" style="margin-top:18px">Não estão incluídos produção fotográfica, gestão de anúncios, serviços pagos de terceiros ou funcionalidades não descritas nesta proposta.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="investment" aria-labelledby="investimento-title">
+      <div class="wrap investment-grid">
+        <div><p class="eyebrow">04 · Investimento na criação</p><h2 id="investimento-title">Criação do site</h2><div class="price">R$ 2.490,00</div><p>Pagamento único pelo desenvolvimento.</p></div>
+        <div class="payment"><p class="strong" style="color:#fff">Condição de pagamento</p><p>Possibilidade de parcelamento em até 12 vezes, com acréscimo dos juros da operadora.</p><p class="small">O valor de cada parcela dependerá das condições da operadora.</p></div>
+      </div>
+    </section>
+
+    <section class="costs" aria-labelledby="custos-title">
+      <div class="wrap">
+        <p class="eyebrow">05 · Custos anuais para manter o site no ar</p>
+        <h2 id="custos-title">O desenvolvimento é pago uma vez. Domínio e hospedagem são renovados anualmente.</h2>
+        <div class="cost-grid">
+          <article class="cost-card"><p class="eyebrow">Domínio</p><div class="amount">R$ 40,00 <small>/ ano</small></div><p>É o endereço do site na internet: o nome que o cliente digita para encontrar a empresa. O registro precisa ser renovado anualmente para manter esse endereço.</p></article>
+          <article class="cost-card"><p class="eyebrow">Hospedagem</p><div class="amount">R$ 240,00 <small>/ ano</small></div><p>É o serviço que armazena os arquivos e as imagens e mantém o site disponível para acesso na internet.</p></article>
+        </div>
+        <div class="finance-summary" aria-label="Resumo financeiro">
+          <div class="finance-lines">
+            <div class="finance-line"><span>Criação do site</span><strong>R$ 2.490,00</strong></div>
+            <div class="finance-line"><span>Domínio anual</span><strong>R$ 40,00</strong></div>
+            <div class="finance-line"><span>Hospedagem anual</span><strong>R$ 240,00</strong></div>
+            <div class="finance-line"><span>Renovações anuais</span><strong>R$ 280,00</strong></div>
+          </div>
+          <div class="first-year"><span>Total do primeiro ano</span><strong>R$ 2.770,00</strong><p>Sem considerar eventuais juros do parcelamento e o serviço opcional de atualizações.</p></div>
+        </div>
+        <p class="cost-foot">Domínio e hospedagem somam <strong>R$ 280,00 por ano</strong>. São custos adicionais à criação, precisam de renovação anual e não representam nova cobrança pelo desenvolvimento. Também são independentes do serviço opcional de atualizações. Os valores de renovação consideram esta proposta.</p>
+      </div>
+    </section>
+
+    <section class="optional" aria-labelledby="opcional-title">
+      <div class="wrap optional-panel">
+        <div><p class="eyebrow">06 · Serviço opcional</p><h2 id="opcional-title">Atualizações sob demanda</h2><div class="optional-price">R$ 100,00/mês<small>Somente se houver necessidade e contratação do serviço.</small></div></div>
+        <div>
+          <p class="lead">Depois que o site estiver aprovado e publicado, poderá surgir a necessidade de trocar banners, inserir itens promocionais ou atualizar conteúdos além do escopo inicial. Para essas situações, o Caçulinha poderá contratar o serviço de atualizações por R$ 100,00 no mês em que precisar.</p>
+          <ul class="plain-list">
+            <li>A contratação é opcional e não existe mensalidade obrigatória de atualizações para manter o site no ar.</li>
+            <li>A cobrança não é automática: depende da necessidade e da contratação prévia. Sem contratação no mês, não há cobrança.</li>
+            <li>O serviço cobre atualizações de conteúdo na estrutura existente, como troca de banners e inserção de destaques ou itens promocionais.</li>
+            <li>Não equivale à criação de catálogo completo, nem inclui alterações ilimitadas ou produção contínua de peças.</li>
+            <li>Novas páginas, funcionalidades ou mudanças estruturais serão avaliadas e orçadas separadamente.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline" aria-labelledby="prazo-title">
+      <div class="wrap">
+        <p class="eyebrow">07 · Prazo e etapas</p><h2 id="prazo-title">Um processo direto, com quatro momentos bem definidos.</h2>
+        <div class="deadline">Prazo de entrega: até 15 dias</div>
+        <div class="steps">
+          <article class="step"><span class="num">ETAPA 01</span><h3>Alinhamento</h3><p>Recebimento dos materiais e das informações necessárias.</p></article>
+          <article class="step"><span class="num">ETAPA 02</span><h3>Criação</h3><p>Organização do conteúdo e desenvolvimento do layout.</p></article>
+          <article class="step"><span class="num">ETAPA 03</span><h3>Revisão</h3><p>Desenvolvimento e apresentação do site para análise.</p></article>
+          <article class="step"><span class="num">ETAPA 04</span><h3>Publicação</h3><p>Ajustes finais, aprovação e colocação do site no ar.</p></article>
+        </div>
+        <p class="small" style="margin-top:32px">O prazo começa após a aprovação da proposta e o recebimento dos materiais e informações necessários, considerando os retornos de aprovação durante o projeto.</p>
+      </div>
+    </section>
+
+    <section class="materials-section" aria-labelledby="materiais-title">
+      <div class="wrap materials-grid">
+        <div><p class="eyebrow">08 · Materiais necessários</p><h2 id="materiais-title">O que precisamos receber para começar.</h2><p class="lead">Materiais completos e informações confirmadas ajudam o projeto a avançar com mais fluidez e fidelidade à realidade do Caçulinha.</p></div>
+        <ol class="materials">
+          <li>Logotipo e arquivos da identidade visual.</li>
+          <li>Fotos das lojas e dos produtos.</li>
+          <li>Relação das categorias.</li>
+          <li>Endereços e horários de todas as unidades.</li>
+          <li>Números de WhatsApp e orientação sobre o direcionamento dos pedidos.</li>
+          <li>Links das redes sociais e dos perfis no Google.</li>
+          <li>Informações institucionais e diferenciais confirmados.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="eyebrow" style="color:#d9eadf">Format Agência</p>
+      <blockquote>“Um endereço próprio para apresentar o Caçulinha, valorizar o que a empresa oferece e facilitar o próximo pedido.”</blockquote>
+      <div class="footer-line"><strong>Format Agência</strong><span>Proposta de criação de site · Caçulinha</span></div>
+    </div>
+  </footer>
+</body>
+</html>
